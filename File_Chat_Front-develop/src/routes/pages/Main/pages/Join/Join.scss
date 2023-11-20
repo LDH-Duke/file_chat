@@ -1,0 +1,32 @@
+.join-container {
+  height: calc(100vh - 64px);
+  .join-flex-box {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .option-select-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 40%;
+      height: 100%;
+
+      .room-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        cursor: pointer;
+
+        img {
+          width: 150%;
+        }
+
+        .menu-title {
+          font-family: 'T-MONEY-BOLD';
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}

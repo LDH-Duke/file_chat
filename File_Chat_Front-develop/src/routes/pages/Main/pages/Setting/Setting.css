@@ -1,0 +1,89 @@
+.setting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 64px); }
+
+.setting-container .setting-flex-box {
+  padding: 20%;
+  padding-top: 100px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.setting-container .setting-flex-box .category-area {
+  margin-bottom: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; }
+
+.setting-container .setting-flex-box .category-area .step-title {
+  width: 30%;
+  font-size: 48px;
+  font-weight: bolder; }
+
+.setting-container .setting-flex-box .category-area .step-content {
+  width: 60%;
+  padding-left: 40px; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group {
+  display: flex;
+  justify-content: space-around; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .category-content .category-image {
+  width: 200px;
+  height: 180px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .category-content .category-image img {
+  width: 100%; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .category-content .category-name {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .ant-radio {
+  margin-bottom: 10px; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .ant-radio .ant-radio-inner {
+  width: 32px;
+  height: 32px; }
+
+.setting-container .setting-flex-box .category-area .step-content .ant-radio-group .category-box .ant-radio-wrapper .ant-radio .ant-radio-inner::after {
+  top: 4px;
+  left: 4px;
+  width: 23px;
+  height: 23px;
+  border-radius: 23px; }
+
+.setting-container .setting-flex-box .hr-line {
+  margin: 40px 0; }
+
+.setting-container .footer-interface-box {
+  height: fit-content;
+  padding: 20px 40px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #333; }
+
+.setting-container .footer-interface-box Button {
+  font-weight: bold; }
+
+.setting-container .question-area .question-addition-button-area #addButton {
+  width: 100%;
+  height: 100px;
+  font-size: 24px;
+  color: #aaa;
+  font-weight: bold; }
+
+.setting-container #dndBox {
+  display: flex; }

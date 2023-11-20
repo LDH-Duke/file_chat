@@ -1,0 +1,133 @@
+.landing-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(51, 51, 51);
+  color: white;
+}
+.landing-wrapper .landing-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.landing-wrapper .landing-container .landing-header {
+  width: 60%;
+  height: 5vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.landing-wrapper .landing-container .landing-header .logo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .landing-header .login {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .visual-container {
+  width: 60%;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .visual-container .left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.landing-wrapper .landing-container .visual-container .right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .banner-container {
+  width: 100%;
+  height: 10vh;
+  background-color: aliceblue;
+  color: black;
+}
+
+.landing-wrapper .landing-container .banner-container .banner-content {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .banner-container .banner-content .left {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.landing-wrapper .landing-container .banner-container .banner-content .right {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+}
+
+.landing-wrapper .landing-container .description {
+  width: 60%;
+  height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .letter {
+  width: 100%;
+  height: 30vh;
+  margin: 0 auto;
+  background-color: aliceblue;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-wrapper .landing-container .footer {
+  width: 60%;
+  height: 5vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

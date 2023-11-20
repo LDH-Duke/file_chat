@@ -1,0 +1,22 @@
+.join-container {
+  height: calc(100vh - 64px); }
+  .join-container .join-flex-box {
+    height: 100%;
+    display: flex;
+    justify-content: center; }
+    .join-container .join-flex-box .option-select-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 40%;
+      height: 100%; }
+      .join-container .join-flex-box .option-select-box .room-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer; }
+        .join-container .join-flex-box .option-select-box .room-box img {
+          width: 150%; }
+        .join-container .join-flex-box .option-select-box .room-box .menu-title {
+          font-family: 'T-MONEY-BOLD';
+          font-size: 32px; }

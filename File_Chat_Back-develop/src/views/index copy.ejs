@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+    }
+
+    .sendfile {
+      bottom: 100px;
+      width: 100%;
+    }
+
+    .form-control {
+      padding: 10px;
+      width: 50% !important;
+      margin-right: 0.5%;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+    #userlist {
+      position: fixed;
+      left: 30px;
+    }
+    .str {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <ul id="userlist"></ul>
+      <h3>Socket.io Chat Example</h3>
+      <select id="roomList" name="roomChoice"></select>
+      <button type="button" class="btn btn-default" onclick="creatRoom()">
+        방생성
+      </button>
+      <button type="button" class="btn btn-primary" onclick="namespace()">
+        랜덤아이디로 로그인
+      </button>
+      <h1></h1>
+      <div>
+        <form id="chatForm" class="form-inline">
+          <div class="form-group">
+            <label for="msgForm">Message: </label>
+            <input type="text" class="form-control" id="msgForm" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <form id="fileForm" class="form-inline">
+          <div class="form-group sendfile">
+            <label for="msgForm">File: </label>
+            <input type="file" id="fileName" onchange="upload(this.files)" />
+            <button type="submit" class="btn btn-primary">File Upload</button>
+          </div>
+        </form>
+      </div>
+      <div id="chatLogs"></div>
+      <ul id="messages"></ul>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      const socket = io();
+      const rName = makeRandomName();
+
+      let num = 0; //현재 방 주소
+      let join_num = 0;
+      $(function () {
+        // 실행할 기능을 정의해주세요.
+        RoomList();
+        socket.emit('joinRoom', num, rName);
+      });
+
+      function makeRandomName() {
+        var name = '';
+        var possible = 'abcdefghijklmnopqrstuvwxyz';
+        for (var i = 0; i < 3; i++) {
+          name += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return name;
+      }
+
+      // 서버로 자신의 정보를 전송한다.
+      function namespace() {
+        socket.emit('leaveRoom', num, rName);
+        num = join_num;
+        socket.emit('login', {
+          num: num,
+          name: rName,
+          userid: `${rName}@gmail.com`,
+        });
+
+        socket.emit('joinRoom', num, rName);
+      }
+
+      function RoomList() {
+        socket.emit('RoomList');
+      }
+      //방생성
+      function creatRoom() {
+        socket.emit('creatRoom');
+      }
+      // 서버로부터의 메시지 수신
+
+      socket.on('RoomList', (room) => {
+        $('#roomList').html('');
+        room.forEach((element) => {
+          $('#roomList').append(
+            $('<option value=' + element + '>').text(element)
+          );
+        });
+      });
+
+      socket.on('creatRoom', (room) => {
+        $('#roomList').html('');
+        room.forEach((element) => {
+          $('#roomList').append(
+            $('<option value=' + element + '>').text(element)
+          );
+        });
+      });
+
+      socket.on('userList', (data) => {
+        $('#userlist').append($('<li>').text('사용자목록'));
+        data.forEach((element) => {
+          if (element.rName === rName) {
+            $('#userlist').append(
+              $('<li class="str">').text(
+                '나 - Name : ' + element.rName + ' / userId : ' + element.userid
+              )
+            );
+          } else {
+            $('#userlist').append(
+              $('<li>').text(
+                'Name : ' + element.rName + ' / userId : ' + element.userid
+              )
+            );
+          }
+        });
+      });
+
+      socket.on('chat message', (rName, msg) => {
+        $('#messages').append($('<li>').text(rName + '  :  ' + msg));
+      });
+
+      socket.on('leaveRoom', (num, rName, room) => {
+        $('#messages').append(
+          $('<li>').text(rName + ' / leaved room : ' + room[num] + ':)')
+        );
+      });
+
+      socket.on('joinRoom', (num, rName, room) => {
+        $('#messages').append(
+          $('<li>').text(rName + ' / joined room : ' + room[num] + ':)')
+        );
+      });
+
+      // Send 버튼이 클릭되면
+      $('#chatForm').submit(function (e) {
+        e.preventDefault();
+        const $msgForm = $('#msgForm');
+        const msg = $msgForm.val();
+
+        console.log('msg : ', msg);
+        // 서버로 메시지를 전송한다.
+        socket.emit('chat message', num, rName, msg);
+        $msgForm.val('');
+      });
+
+      // fileupload 버튼이 클릭되면
+      $('#fileForm').submit(function (e) {
+        e.preventDefault();
+        const files = $('#fileName').prop('files');
+        console.log(files[0]);
+        // 서버로 파일을 전송한다.
+        socket.emit('upload', files[0], (status) => {
+          console.log(status);
+        });
+        $('#fileName').val('');
+      });
+
+      //방 옮기기
+      $('select[name=roomChoice]').change(() => {
+        const a = $('select[name=roomChoice] option:selected').val();
+        var regex = /[^0-9]/g;
+        var result = a.replace(regex, '');
+        join_num = result - 1;
+      });
+    </script>
+  </body>
+</html>

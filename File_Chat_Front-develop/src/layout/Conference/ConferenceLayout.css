@@ -1,0 +1,308 @@
+.confenrence-layout {
+  height: 100vh; }
+  .confenrence-layout .broadcast-page-header {
+    display: flex;
+    align-items: center;
+    padding: 0px 36px; }
+    .confenrence-layout .broadcast-page-header .ant-page-header-heading {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center; }
+      .confenrence-layout .broadcast-page-header .ant-page-header-heading .ant-page-header-heading-left .ant-page-header-back .ant-page-header-back-button {
+        color: #fff; }
+      .confenrence-layout .broadcast-page-header .ant-page-header-heading .ant-page-header-heading-left .ant-page-header-heading-title {
+        margin-left: 12px;
+        color: #fff; }
+      .confenrence-layout .broadcast-page-header .ant-page-header-heading .ant-page-header-heading-extra {
+        height: 100%;
+        display: flex;
+        align-items: center; }
+  .confenrence-layout aside.left-side-bar div.ant-layout-sider-children ul.ant-menu li.ant-menu-item.ant-menu-item-selected {
+    background-color: inherit; }
+  .confenrence-layout aside.left-side-bar div.ant-layout-sider-children ul.ant-menu li.ant-menu-item .icon {
+    font-size: 24px; }
+  .confenrence-layout aside.left-inner-side-bar {
+    min-width: fit-content !important;
+    max-width: fit-content !important; }
+  .confenrence-layout aside.right-side-bar {
+    min-width: fit-content !important;
+    max-width: fit-content !important; }
+
+.chatting-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .chatting-container .chat-board-container {
+    flex-basis: 100%;
+    overflow-y: auto; }
+    .chatting-container .chat-board-container .chat-board-box {
+      height: 100%; }
+      .chatting-container .chat-board-container .chat-board-box .chat-content-box {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0 10px; }
+        .chatting-container .chat-board-container .chat-board-box .chat-content-box .chat-content {
+          max-width: 80%;
+          padding: 20px 30px;
+          background-color: #d9d9d9;
+          border-radius: 20px;
+          color: black; }
+          .chatting-container .chat-board-container .chat-board-box .chat-content-box .chat-content .chat-user {
+            display: block;
+            font-family: 'BC-BOLD';
+            font-size: 16px; }
+          .chatting-container .chat-board-container .chat-board-box .chat-content-box .chat-content .chat-text {
+            line-break: anywhere; }
+        .chatting-container .chat-board-container .chat-board-box .chat-content-box.me {
+          justify-content: flex-end; }
+          .chatting-container .chat-board-container .chat-board-box .chat-content-box.me .chat-content {
+            background-color: #1890ff;
+            color: #fff; }
+  .chatting-container .chat-input-container {
+    height: fit-content; }
+    .chatting-container .chat-input-container .chat-input-box {
+      display: flex; }
+      .chatting-container .chat-input-container .chat-input-box .chat-input-area {
+        width: 90%; }
+        .chatting-container .chat-input-container .chat-input-box .chat-input-area #chatText {
+          height: 48px; }
+      .chatting-container .chat-input-container .chat-input-box .chat-send-button-area {
+        width: 10%; }
+        .chatting-container .chat-input-container .chat-input-box .chat-send-button-area #sendButton {
+          height: 100%; }
+
+.file-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100%; }
+  .file-list-container .file-list-flex-box {
+    height: 200px;
+    padding: 5px 10px; }
+    .file-list-container .file-list-flex-box .file-list-box {
+      padding-right: 5px;
+      height: 100%;
+      overflow-y: auto; }
+      .file-list-container .file-list-flex-box .file-list-box .empty-set-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; }
+        .file-list-container .file-list-flex-box .file-list-box .empty-set-box .empty-set {
+          color: #fff; }
+      .file-list-container .file-list-flex-box .file-list-box .list-item {
+        margin-bottom: 3px;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        cursor: pointer; }
+        .file-list-container .file-list-flex-box .file-list-box .list-item .list-title {
+          width: 100%;
+          color: #8e8e8e;
+          font-weight: bold;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap; }
+        .file-list-container .file-list-flex-box .file-list-box .list-item.active {
+          background-color: #7cb305; }
+          .file-list-container .file-list-flex-box .file-list-box .list-item.active .list-title {
+            color: #fff; }
+        .file-list-container .file-list-flex-box .file-list-box .list-item:hover {
+          background-color: #1890ff; }
+          .file-list-container .file-list-flex-box .file-list-box .list-item:hover .list-title {
+            color: #fff; }
+  .file-list-container .document-image-flex-box {
+    flex: 1;
+    z-index: 1;
+    overflow-y: auto;
+    padding: 5px 10px;
+    background-color: #4b4b4b; }
+    .file-list-container .document-image-flex-box .image-row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 7px 8px; }
+      .file-list-container .document-image-flex-box .image-row .image-box {
+        position: relative;
+        border: 1px solid #bbb;
+        margin-bottom: 10px;
+        cursor: pointer;
+        text-align: center;
+        background-color: #fff; }
+        .file-list-container .document-image-flex-box .image-row .image-box img {
+          background-color: #fff;
+          width: 100%; }
+        .file-list-container .document-image-flex-box .image-row .image-box.moderator {
+          border: 5px solid #c75c58; }
+        .file-list-container .document-image-flex-box .image-row .image-box.me {
+          border: 5px solid #5e8d15; }
+        .file-list-container .document-image-flex-box .image-row .image-box .video-badge {
+          color: #fff;
+          padding: 4px 8px; }
+        .file-list-container .document-image-flex-box .image-row .image-box .my-badge {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          background-color: #5e8d15; }
+        .file-list-container .document-image-flex-box .image-row .image-box .moderator-badge {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          background-color: #c75c58; }
+    .file-list-container .document-image-flex-box .empty-set-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%; }
+      .file-list-container .document-image-flex-box .empty-set-box .empty-set {
+        color: #fff; }
+    .file-list-container .document-image-flex-box .collapse-toggle-button-box {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%); }
+  .file-list-container .ant-list-item {
+    cursor: pointer;
+    background-color: #fff; }
+    .file-list-container .ant-list-item:hover {
+      background-color: #1890ff;
+      color: #fff; }
+    .file-list-container .ant-list-item.active {
+      background-color: #7cb305;
+      color: #fff; }
+
+.voting-container {
+  width: 400px;
+  height: 100%; }
+  .voting-container .voting-flex-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
+    .voting-container .voting-flex-box .insert-voting-box {
+      min-height: 110px;
+      max-height: 200px;
+      height: fit-content;
+      overflow-y: auto;
+      padding: 14px 8px;
+      background-color: #4a4a4a; }
+      .voting-container .voting-flex-box .insert-voting-box .question-box {
+        display: flex;
+        height: 85px; }
+        .voting-container .voting-flex-box .insert-voting-box .question-box .left-item {
+          height: 100%;
+          flex: 1;
+          display: flex;
+          flex-direction: column; }
+          .voting-container .voting-flex-box .insert-voting-box .question-box .left-item .input-box {
+            width: 100%;
+            height: 50%; }
+            .voting-container .voting-flex-box .insert-voting-box .question-box .left-item .input-box .insert-text-field {
+              width: 100%;
+              height: 100%;
+              border: none;
+              color: black;
+              padding: 0 24px; }
+              .voting-container .voting-flex-box .insert-voting-box .question-box .left-item .input-box .insert-text-field::placeholder {
+                color: #939393; }
+          .voting-container .voting-flex-box .insert-voting-box .question-box .left-item .insert-box {
+            width: 100%;
+            height: 50%; }
+            .voting-container .voting-flex-box .insert-voting-box .question-box .left-item .insert-box .insert-btn {
+              border: none;
+              width: 100%;
+              height: 100%;
+              color: #545454; }
+        .voting-container .voting-flex-box .insert-voting-box .question-box .right-item {
+          width: 75px;
+          height: 100%;
+          background-color: #4457f3;
+          display: flex;
+          align-items: center;
+          cursor: pointer; }
+          .voting-container .voting-flex-box .insert-voting-box .question-box .right-item .insert-icon {
+            width: 100%;
+            color: #fff; }
+      .voting-container .voting-flex-box .insert-voting-box .option-box-container {
+        margin-top: 10px;
+        padding: 0 5px; }
+        .voting-container .voting-flex-box .insert-voting-box .option-box-container .option-wrapper {
+          display: flex;
+          flex-wrap: wrap; }
+          .voting-container .voting-flex-box .insert-voting-box .option-box-container .option-wrapper .option .option-checkbox {
+            display: flex;
+            align-items: center; }
+            .voting-container .voting-flex-box .insert-voting-box .option-box-container .option-wrapper .option .option-checkbox .option-text {
+              color: #fff; }
+    .voting-container .voting-flex-box .voting-list-box {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 8px; }
+      .voting-container .voting-flex-box .voting-list-box .voting-item {
+        margin-bottom: 10px;
+        background-color: #fff;
+        color: black;
+        cursor: pointer; }
+        .voting-container .voting-flex-box .voting-list-box .voting-item:hover .title-box {
+          background-color: #1890ff;
+          color: #fff; }
+        .voting-container .voting-flex-box .voting-list-box .voting-item .title-box {
+          padding: 0px 16px;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px; }
+          .voting-container .voting-flex-box .voting-list-box .voting-item .title-box .icon {
+            font-size: 16px; }
+        .voting-container .voting-flex-box .voting-list-box .voting-item .option-box {
+          padding: 0px 16px;
+          padding-bottom: 20px; }
+
+.drawing-container {
+  width: 200px;
+  height: 100%; }
+  .drawing-container .drawing-flex-box {
+    width: 100%;
+    height: 100%; }
+    .drawing-container .drawing-flex-box .sheet-list {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 20px 13px; }
+      .drawing-container .drawing-flex-box .sheet-list .sheet-box {
+        width: 100%;
+        height: 110px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer; }
+        .drawing-container .drawing-flex-box .sheet-list .sheet-box.me-active {
+          border: 5px solid #5e8d15; }
+        .drawing-container .drawing-flex-box .sheet-list .sheet-box.moderate-active {
+          border: 5px solid #c75c58; }
+        .drawing-container .drawing-flex-box .sheet-list .sheet-box .thumbnail-box {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center; }
+      .drawing-container .drawing-flex-box .sheet-list .add-sheet-item {
+        box-shadow: 0 0 0 5px #fff inset;
+        background-color: #848484; }
+        .drawing-container .drawing-flex-box .sheet-list .add-sheet-item .add-mark {
+          font-size: 42px; }
+
+::-webkit-scrollbar-track {
+  background-color: none; }
+
+::-webkit-scrollbar {
+  width: 6px; }
+
+::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #d6d6d6; }

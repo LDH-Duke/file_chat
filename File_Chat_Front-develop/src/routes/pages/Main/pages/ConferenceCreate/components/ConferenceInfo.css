@@ -1,0 +1,10 @@
+.conferenceCreate-userItem {
+  color: #333;
+}
+.conferenceCreate-userItem:hover {
+  background: rgba(74, 140, 255, 0.14);
+}
+
+.conferenceCreate-userItem-selected {
+  background: rgba(60, 127, 241, 0.14);
+}

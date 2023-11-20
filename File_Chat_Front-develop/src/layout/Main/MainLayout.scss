@@ -1,0 +1,31 @@
+.ant-layout.main-layout {
+  background-color: #fff !important;
+
+  .ant-layout-header {
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+    .logo {
+      font-family: 'BC-BOLD';
+      float: left;
+      font-size: 48px;
+      color: #fff;
+      -webkit-text-stroke: 2px #000;
+
+      span {
+        font-size: 49px;
+        -webkit-text-stroke: 0px;
+      }
+    }
+
+    .ant-menu {
+      text-align: right;
+      height: 100%;
+
+      #accountBtn {
+        .anticon {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

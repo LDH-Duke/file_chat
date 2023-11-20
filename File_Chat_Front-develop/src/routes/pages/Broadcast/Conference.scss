@@ -1,0 +1,38 @@
+.side-tab-container {
+  height: 100vh;
+  //SECTION 탭 디자인
+
+  .ant-tabs {
+    height: 100%;
+    .ant-tabs-nav {
+      height: 64px;
+      margin: 0;
+
+      &::before {
+        border-bottom: 2px solid #808080;
+      }
+      .ant-tabs-nav-wrap {
+        .ant-tabs-nav-list {
+          width: 100%;
+
+          .ant-tabs-tab {
+            padding: 20px;
+            margin: 0;
+
+            width: 50%;
+            font-size: x-large;
+
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    .ant-tabs-content-holder {
+      height: 93%;
+      .ant-tabs-content {
+        height: 100%;
+      }
+    }
+  }
+}

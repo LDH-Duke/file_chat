@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "DSU-2020",
+      "script": "npx babel-node ./bin/www",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "development",
+        "API_PORT": 3333
+      }
+    }
+  ]
+}

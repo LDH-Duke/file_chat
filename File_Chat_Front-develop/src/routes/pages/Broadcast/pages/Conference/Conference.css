@@ -1,0 +1,89 @@
+.conference-container {
+  height: 100%;
+  display: flex; }
+
+.conference-container .media-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+
+.conference-container .media-box .chat-toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px; }
+
+.conference-container .media-box .video-box {
+  width: 100%;
+  height: 90%;
+  background-color: black; }
+
+.conference-container .media-box .interface-box {
+  width: 100%;
+  min-height: 10%; }
+
+.conference-container .side-tab {
+  width: 30%;
+  height: 100%;
+  position: relative;
+  display: none; }
+
+.conference-container .side-tab.toggle {
+  display: block; }
+
+.conference-container .interface-container {
+  width: 100%;
+  height: 100%;
+  background-color: #434343;
+  position: relative; }
+
+.conference-container .interface-container .interface-content-box {
+  padding: 20px;
+  display: flex;
+  justify-content: center; }
+
+.conference-container .interface-container .interface-content-box .interface-button-group {
+  display: flex;
+  justify-content: space-around; }
+
+.conference-container .interface-container .interface-content-box .interface-button-group .interface-button {
+  height: 48px;
+  margin: 0 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 7px 30px; }
+
+.conference-container .interface-container .interface-content-box .interface-button-group .interface-button.active {
+  border-color: #fff;
+  background-color: inherit; }
+
+.conference-container .interface-container .interface-content-box .interface-button-group .interface-button.mute {
+  color: #fff;
+  background-color: inherit;
+  border: 1px soild #fff; }
+
+.conference-container .interface-container .interface-right-box {
+  position: absolute;
+  right: 40px;
+  top: 20px; }
+
+#invitePopover .invite-btn-box {
+  display: flex;
+  width: 300px;
+  cursor: pointer; }
+
+#invitePopover .invite-btn-box .text-field {
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  background-color: #1890ff;
+  color: #fff;
+  width: 90%;
+  padding-left: 5px; }
+
+#invitePopover .invite-btn-box .copy-btn button {
+  border-radius: 0; }

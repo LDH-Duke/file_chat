@@ -1,0 +1,126 @@
+.setting-container {
+  // padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+  .setting-flex-box {
+    padding: 20%;
+    padding-top: 100px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .category-area {
+      margin-bottom: 48px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+
+      .step-title {
+        width: 30%;
+        font-size: 48px;
+        font-weight: bolder;
+      }
+      .step-content {
+        width: 60%;
+        padding-left: 40px;
+        .ant-radio-group {
+          display: flex;
+          // justify-content: center;
+          justify-content: space-around;
+          .category-box {
+            .ant-radio-wrapper {
+              .category-content {
+                .category-image {
+                  // border: 2px solid black;
+                  width: 200px;
+                  height: 180px;
+                  border-radius: 20px;
+
+                  display: flex;
+                  align-items: center;
+
+                  img {
+                    width: 100%;
+                  }
+                }
+                .category-name {
+                  text-align: center;
+                  font-size: 40px;
+                  font-weight: bold;
+                }
+              }
+
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              //SECTION RADIO 버튼 디자인
+              .ant-radio {
+                margin-bottom: 10px;
+                .ant-radio-inner {
+                  width: 32px;
+                  height: 32px;
+
+                  &::after {
+                    top: 4px;
+                    left: 4px;
+                    width: 23px;
+                    height: 23px;
+                    border-radius: 23px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .hr-line {
+      margin: 40px 0;
+    }
+  }
+
+  .footer-interface-box {
+    // position: fixed;
+    height: fit-content;
+    padding: 20px 40px;
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    background-color: #333;
+
+    Button {
+      font-weight: bold;
+    }
+  }
+
+  //SECTION Question 컴포넌트
+  .question-area {
+    .question-addition-button-area {
+      #addButton {
+        width: 100%;
+        height: 100px;
+
+        font-size: 24px;
+        color: #aaa;
+        font-weight: bold;
+      }
+    }
+  }
+
+  //SECTION Attachment 컴포넌트
+  #dndBox {
+    display: flex;
+    .dnd-section {
+      .ant-upload-drag-icon {
+      }
+    }
+
+    .file-list-section {
+    }
+  }
+}

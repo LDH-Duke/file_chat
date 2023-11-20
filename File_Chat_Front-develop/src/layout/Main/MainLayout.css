@@ -1,0 +1,86 @@
+.ant-layout.main-layout {
+  height: 100%;
+  min-height: 100px;
+  padding: 0 !important;
+  background-color: #f0f2f5;
+}
+
+.ant-layout.main-layout .ant-layout-header {
+  width: 100%;
+  padding: 0;
+  height: 70px;
+  /* background-color: #fff; */
+  background-color: #476cec;
+  /* border-bottom: 2px solid #000; */
+  color: white;
+  box-shadow: 2px 9px -6px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  /* height: 73px; */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ant-layout.main-layout .ant-layout-header .logo {
+  width: 20%;
+  height: 100%;
+  font-family: 'NanumGothic';
+  font-weight: bold;
+  font-size: 28px;
+  color: #fff;
+  padding: 0 1%;
+  /* -webkit-text-stroke: 2px #000; */
+}
+.ant-layout.main-layout .ant-layout-header .logo span {
+  color: #476cec !important;
+  -webkit-text-stroke: 0.5px #f1f1f1;
+}
+.ant-layout.main-layout .ant-layout-header .main-navigator {
+  width: 60%;
+  /* height: 100%; */
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-layout.main-layout .ant-layout-header .main-navigator .navi-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.05em;
+  padding: 0 2%;
+  border-top: 5px solid #476cec;
+  border-bottom: 5px solid #476cec;
+  margin-bottom: 7px;
+  height: 67px;
+  margin: 0;
+}
+
+.ant-layout.main-layout .ant-layout-header .main-navigator .navi-item.active {
+  border-color: white;
+  border-top: 5px solid #476cec;
+}
+
+/* .ant-layout.main-layout .ant-layout-header .header-menu .ant-menu { */
+.ant-layout.main-layout .ant-layout-header .ant-menu {
+  height: 100%;
+  background: transparent;
+}
+
+.ant-layout.main-layout .ant-layout-header .ant-menu #accountBtn .anticon {
+  margin-right: 0;
+}
+
+.main-layout-content {
+  width: 60%;
+  /* display: flex; */
+  justify-content: center;
+  margin: 0 auto;
+}

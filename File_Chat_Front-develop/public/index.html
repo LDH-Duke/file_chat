@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="title" content="Shared Device Storage">
+  <meta name="author" content="코드브루잉">
+  <meta property="og:keywords"
+    content="라이브콘, 라이브컨, Livecon, livecon, livecen, liveconn, 화상회의, 화상교육, 비대면, 비대면교육, 비대면회의, 코드브루잉, Codebrewing, codebrewing, video conferencing, video conference, online meetings, web meeting, video meeting, cloud meeting, cloud video, group video call, group video chat, screen share, video collaboration, group messaging">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="XXX 채팅 시스템">
+  <meta name="description" content="XXXXX 채팅 시스템">
+  <meta property="og:url" content="https://meet.codebrewing.co.kr">
+  <link rel="apple-touch-icon" href="/chat_icon_01.png">
+  <link rel="manifest" href="/manifest.json">
+  <title>FileChat 시스템</title>
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/chat_icon_01.png" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <script src="https://meet.jit.si/libs/lib-jitsi-meet.min.js"></script>
+  <script>
+    window.JitsiMeetJS = JitsiMeetJS
+  </script>
+</head>
+<style>
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #f0f2f5;
+  }
+</style>
+
+<body>
+  <noscript>FileChat으로 새로운 언택트를 체험하세요</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src='https://broadcast.livecon.kr/external_api.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: ['develop']
+  pull_request:
+    branches: ['develop']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: MIIEpAIBAAKCAQEAjTj28ioKbg8NvJjzeGg0sWjNdhGDCmWd6lyF5A4vkm/0sRuHb5tA2NmDq47sE6EE2q0DC9XuJYFIilOTUCViIrYWZoKRkwsycxskOA6NunLtOcS9vrDRi3Yh8SBQ4bu2wDmvKWOPimHNzocuXKRXwz3JVgQt+6O1Qv7F0XeAQ/+PGWLBcKD3wugEIauCQcPOWOeTz47kF5QO8cTUY4i5DFMgBO4JItgR2phlkDhh9v/NYSJSZUSLOL33Fud008dNhMflvwJPJmJZ37dDwnQU1o1FbbCfnToPMKUc1POtbL2s94/V96j6JX2SOHn20dfxOH63EjwTa3OdPAdzYdOMQIDAQABAoIBAClHzn+pJFVZlyVa/EhlBYoaXXy2z7w5SfjYxNaOAv/mM/uVVXidRE5e/qsmYwG13qphSnOqPCvAZ8jvdy9FTjNhUJj0b8Mw0bVt6J9uOaWXtJpfVSupmgcPKArI7HufmGMGOZp6nNnRjwxg3X99Fp5esDyxihN1niWQPZjmOpslZUS2w2bcEObiIgELf4Ld7U5Mv5hC1wOfLUOBQ3IMeuZ5In0qHzLktzreX5BlTtmIcUJXb3kwyp7LLHDEINfRuevhTfj0KyKHVKR/9HtCUG0gRADXVo2W9ZWSYTosw1qSlDNDwnd8/hIDZYEKh9xmTN7ewCjk0MKsqGeDAZUURzECgYEA84qyVHcdQnL5DIVcPae6zULoByi0oBNsJC5ZAQ6eCEO0bNWrDgKxmWy/LEEb2jRr+q3yAlN6Q5ivdWU89vH1LClp4R0Op4oy1mU2dz9F9k/cPeia91NPfFaJspNYShzO7YLsZoPocMycIwV8eWx/rbxaycfGYUQIp4762cZf4c0CgYEAlHJYYxBtHTnDavkmn3QhkEiaq+vyvlZdOYEDGSn33g8cVBZwGpUeu0A+ubTSKRVfTuanntDziOv5Tzs7Ok3ya30p08s9p09mYFG/AqBoi26JMF6Z/bIs0okRP+Q0lduq+lHplCae50Jjlqsbp3RnYf+bQ0/2pmdKDbTNcSQkCfUCgYAb4rWoljrzcNazaFG3fY0WE6Mdrrt/2Ll5KxVl2Zaeu6HdFFoRsJ1FQ/5fwtS9l2MFwQUE3yoQs1rjxkPEws+fzt4guIMFC/3mLpCd9tC780j0jb2wtAlV41LA774cPlAzQdpvoorq34LBP8+Q16uG6Ro8IHPGj1OuW+C9LsmrwQKBgQCRDt+SBlYpre1o1gjI3imCHYCPKWSuXCSC8a++YkVlR+zNupNXVoqOPixNOgX3wXu91STMy7B/BuA7bUzmH48ZPFioLr2ThcIrsxXtEiS2w4/ppTfjMb4dCXXCslQ0cFC2hV6zt72ljDlW3OOMEfKIT8c/0p7aYqp5lEkBG2jgFQKBgQCNhh2ezxpXVBUb0zJvkKFRtF6vfBDEl8iIxCPXpKVXllRhG1MiwRg7NeJ/jlnVEeGsS/A2cMtwUGNtmz1nbSBVHR7ImgVV8AU4sGbbvTSQExtNp85YPXHrpzHp720D5C/DbfwPNA+bhDRI8IkdtQUBJI3Ji7Nhq3azknaA44ViUw==
+
+    - name: Deploy to EC2
+      run: |
+        # Replace with your EC2 server's IP or hostname
+        EC2_HOST="3.34.90.66"
+
+        # Replace with the path to your project directory on the EC2 server
+        PROJECT_DIR="/Project/DSU_File_Chat"
+
+        # SSH into the server, pull the latest code, and restart the server
+        ssh ubuntu@$EC2_HOST "cd $PROJECT_DIR && git pull origin develop && npm install && nodemon --exec cross-env NODE_ENV=development babel-node ./bin/www"
+
+#     - name: SSH and deploy node app
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: 3.34.90.66
+#         username: ubuntu
+#         key: MIIEpAIBAAKCAQEAjTj28ioKbg8NvJjzeGg0sWjNdhGDCmWd6lyF5A4vkm/0sRuH
+# b5tA2NmDq47sE6EE2q0DC9XuJYFIilOTUCViIrYWZoKRkwsycxskOA6NunLtOcS9
+# vrDRi3Yh8SBQ4bu2wDmvKWOPimHNzocuXKRXwz3JVgQt+6O1Qv7F0XeAQ/+PGWLB
+# cKD3wugEIauCQcPOWOeTz47kF5QO8cTUY4i5DFMgBO4JItgR2phlkDhh9v/NYSJV
+# SZUSLOL33Fud008dNhMflvwJPJmJZ37dDwnQU1o1FbbCfnToPMKUc1POtbL2s94/
+# V96j6JX2SOHn20dfxOH63EjwTa3OdPAdzYdOMQIDAQABAoIBAClHzn+pJFVZlyVa
+# /EhlBYoaXXy2z7w5SfjYxNaOAv/mM/uVVXidRE5e/qsmYwG13qphSnOqPCvAZ8jv
+# dy9FTjNhUJj0b8Mw0bVt6J9uOaWXtJpfVSupmgcPKArI7HufmGMGOZp6nNnRjwxg
+# 3X99Fp5esDyxihN1niWQPZjmOpslZUS2w2bcEObiIgELf4Ld7U5Mv5hC1wOfLUOB
+# Q3IMeuZ5In0qHzLktzreX5BlTtmIcUJXb3kwyp7LLHDEINfRuevhTfj0KyKHVKR/
+# 9HtCUG0gRADXVo2W9ZWSYTosw1qSlDNDwnd8/hIDZYEKh9xmTN7ewCjk0MKsqGeD
+# AZUURzECgYEA84qyVHcdQnL5DIVcPae6zULoByi0oBNsJC5ZAQ6eCEO0bNWrDgKx
+# mWy/LEEb2jRr+q3yAlN6Q5ivdWU89vH1LClp4R0Op4oy1mU2dz9F9k/cPeia91NP
+# fFaJspNYShzO7YLsZoPocMycIwV8eWx/rbxaycfGYUQIp4762cZf4c0CgYEAlHJY
+# YxBtHTnDavkmn3QhkEiaq+vyvlZdOYEDGSn33g8cVBZwGpUeu0A+ubTSKRVfTuan
+# ntDziOv5Tzs7Ok3ya30p08s9p09mYFG/AqBoi26JMF6Z/bIs0okRP+Q0lduq+lHp
+# lCae50Jjlqsbp3RnYf+bQ0/2pmdKDbTNcSQkCfUCgYAb4rWoljrzcNazaFG3fY0W
+# E6Mdrrt/2Ll5KxVl2Zaeu6HdFFoRsJ1FQ/5fwtS9l2MFwQUE3yoQs1rjxkPEws+f
+# zt4guIMFC/3mLpCd9tC780j0jb2wtAlV41LA774cPlAzQdpvoorq34LBP8+Q16uG
+# 6Ro8IHPGj1OuW+C9LsmrwQKBgQCRDt+SBlYpre1o1gjI3imCHYCPKWSuXCSC8a++
+# YkVlR+zNupNXVoqOPixNOgX3wXu91STMy7B/BuA7bUzmH48ZPFioLr2ThcIrsxXt
+# EiS2w4/ppTfjMb4dCXXCslQ0cFC2hV6zt72ljDlW3OOMEfKIT8c/0p7aYqp5lEkB
+# G2jgFQKBgQCNhh2ezxpXVBUb0zJvkKFRtF6vfBDEl8iIxCPXpKVXllRhG1MiwRg7
+# NeJ/jlnVEeGsS/A2cMtwUGNtmz1nbSBVHR7ImgVV8AU4sGbbvTSQExtNp85YPXHr
+# pzHp720D5C/DbfwPNA+bhDRI8IkdtQUBJI3Ji7Nhq3azknaA44ViUw==
+#         port: 3333
+#         script: |
+#           cd ~/ananlytics_backend
+#           git pull ${{ secrets.GIT_URL }}
+#           export NVM_DIR=~/.nvm
+#           source ~/.nvm/nvm.sh
+#           pm2 restart 0
+
+

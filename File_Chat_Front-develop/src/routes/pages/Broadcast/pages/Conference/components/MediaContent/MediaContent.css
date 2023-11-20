@@ -1,0 +1,298 @@
+.media-content-container {
+  height: 100%; }
+
+.media-content-container .media-video {
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .user-video-box {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center; }
+
+.media-content-container .user-video-box video {
+  max-width: 100%;
+  height: 100%; }
+
+.media-content-container .participants-video-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.media-content-container .participants-video-box .video-wrapper {
+  position: relative;
+  height: 100%;
+  padding: 20px; }
+
+.media-content-container .participants-video-box .video-wrapper .label-area {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: black;
+  font-size: x-large;
+  padding: 0px 20px; }
+
+.media-content-container .participants-video-box .video-wrapper .label-area .display-name-text {
+  color: white;
+  font-family: 'BC-BOLD'; }
+
+.media-content-container .participants-video-box .video-wrapper .user-video {
+  max-width: 100%;
+  height: 100%; }
+
+.media-content-container .single-video-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .single-video-layout #media1 {
+  width: 70%;
+  height: 70%; }
+
+.media-content-container .couple-video-layout {
+  display: flex;
+  align-items: center;
+  height: 100%; }
+
+.media-content-container .couple-video-layout .user-video-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%; }
+
+.media-content-container .couple-video-layout .participants-video-box {
+  width: 50%;
+  height: 50%; }
+
+.media-content-container .trio-video-layout {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .trio-video-layout .left-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.media-content-container .trio-video-layout .left-side .user-video-box {
+  height: 500px; }
+
+.media-content-container .trio-video-layout .right-side {
+  width: 50%;
+  height: 100%; }
+
+.media-content-container .trio-video-layout .right-side .participants-video-box {
+  width: 100%;
+  height: 50%; }
+
+.media-content-container .quattro-video-layout {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%; }
+
+.media-content-container .quattro-video-layout .user-video-box {
+  flex-basis: 50%;
+  height: 50%; }
+
+.media-content-container .quattro-video-layout .participants-video-box {
+  flex-basis: 50%;
+  height: 50%; }
+
+.media-content-container .document-sharing-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .document-sharing-layout #mediaDocument {
+  width: 100%;
+  height: 80%;
+  background-color: #757575;
+  position: relative;
+  display: flex;
+  justify-content: center; }
+
+.media-content-container .document-sharing-layout #mediaDocument .document-image {
+  background-color: #fff;
+  height: 100%; }
+
+.media-content-container .document-sharing-layout #mediaDocument .empty-document-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  background-color: #fff;
+  font-size: xx-large; }
+
+.media-content-container .document-sharing-layout #mediaDocument .canvas-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .document-sharing-layout .participant-video {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  overflow-x: auto; }
+
+.media-content-container .document-sharing-layout .participant-video .participants-video-box {
+  height: 100%; }
+
+.media-content-container .document-sharing-layout .owner-video-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: black;
+  width: 300px;
+  height: 200px; }
+
+.media-content-container .document-sharing-layout .owner-video-box .user-video {
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .drawing-board-layout {
+  width: 100%;
+  height: 100%; }
+
+.media-content-container .drawing-board-layout .drawing-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8f8f8f; }
+
+.media-content-container .drawing-board-layout .drawing-board .canvas {
+  width: 90%;
+  height: 90%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.media-content-container .drawing-board-layout .drawing-board .canvas .active-sheet-not-exist-alert {
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 4px; }
+
+.media-content-container .drawing-board-layout .drawing-board .canvas .active-sheet-not-exist-alert .info-text {
+  font-size: 18px; }
+
+.media-content-container .drawing-board-layout .drawing-board .canvas .canvas-stage {
+  background-color: #fff;
+  box-shadow: 0 0 5px 1px #aaa inset; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area {
+  position: absolute;
+  bottom: 0; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area .video-toggle-btn-box {
+  display: flex;
+  justify-content: center; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area .video-toggle-btn-box .toggle-button {
+  font-size: 32px; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area .video-toggle-btn-box .toggle-button.collapsed {
+  margin-bottom: 10px; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area .participant-video {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  overflow-x: auto; }
+
+.media-content-container .drawing-board-layout .drawing-board .video-area .participant-video .participants-video-box {
+  height: 100%; }
+
+.media-content-container .drawing-tools-contaier {
+  position: absolute;
+  background-color: #6480e3;
+  border-radius: 50px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box {
+  padding: 12px;
+  display: flex; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box div.menu-box {
+  display: flex; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box div.menu-box .menu {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+  color: #fff;
+  cursor: pointer; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box div.menu-box .menu:last-child {
+  margin-right: 0; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .history-menu .menu {
+  background-color: #fff;
+  border-radius: 100%; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .history-menu .menu .history-item {
+  font-size: 20px;
+  color: #6480e3; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu .color-item {
+  width: inherit;
+  height: inherit;
+  border-radius: 100%; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu .color-item.active {
+  box-shadow: 0 0 0 4px inset; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #red {
+  background-color: red; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #orange {
+  background-color: #ff8b50; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #yellow {
+  background-color: #f5c43f; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #green {
+  background-color: #7cc728; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #blue {
+  background-color: #5050ff; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .color-menu .menu #pink {
+  background-color: #ff50ee; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .vertical-hr {
+  margin: 0 10px;
+  height: 35px;
+  border-left: 1px solid #4f65b1; }
+
+.media-content-container .drawing-tools-contaier .drawing-tools-flex-box .interface-menu #closeBtn {
+  font-size: 40px;
+  color: #ec5a5a;
+  background-color: #fff;
+  border-radius: 100%; }
+
+.media-content-container .drawing-tools-toggle {
+  position: absolute;
+  left: 50%;
+  z-index: 5; }
+
+.media-content-container .drawing-tools-toggle .panel-toggle-button {
+  font-size: 56px; }

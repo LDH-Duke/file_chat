@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <g id="그룹_73" data-name="그룹 73" transform="translate(-649.5 -777)">
+    <g id="photo_placeholder_copy" data-name="photo / placeholder copy" transform="translate(649.5 777)">
+      <rect id="Shadow" width="220" height="220" rx="16" fill="none"/>
+      <g id="Rectangle" fill="#ffbd12" stroke="#18191f" stroke-miterlimit="10" stroke-width="2">
+        <rect width="220" height="220" rx="16" stroke="none"/>
+        <rect x="1" y="1" width="218" height="218" rx="15" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_awesome-video" data-name="Icon awesome-video" d="M47.555,4.5H6.761A6.761,6.761,0,0,0,0,11.261V52.055a6.761,6.761,0,0,0,6.761,6.761H47.555a6.761,6.761,0,0,0,6.761-6.761V11.261A6.761,6.761,0,0,0,47.555,4.5Zm26.79,5.333-15.5,10.694V42.79l15.5,10.679a4.535,4.535,0,0,0,7.129-3.649V13.482A4.537,4.537,0,0,0,74.346,9.833Z" transform="translate(722.763 854.842)" fill="#fff"/>
+  </g>
+</svg>

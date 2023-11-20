@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>채팅방</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <!-- 스타일 시트 정의 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+    }
+
+    .sendfile {
+      bottom: 100px;
+      width: 100%;
+    }
+
+    .form-control {
+      padding: 10px;
+      width: 50% !important;
+      margin-right: 0.5%;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+    #userlist {
+      position: fixed;
+      background-color: beige;
+      right: 30px;
+    }
+    .str {
+      color: blue;
+      font-weight: bold;
+      height: '40px';
+      background-color: white;
+    }
+    .users {
+      height: '40px';
+      border: 1px solid white;
+      cursor: pointer;
+    }
+    .users:hover {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+  <!-- TEST UI 정의 -->
+  <body>
+    <div class="container">
+      <ul id="userlist"></ul>
+      <h3>Socket.io Chat Example2</h3>
+      <select id="roomList" name="roomChoice"></select>
+      <button type="button" class="btn btn-default" onclick="creatRoom()">
+        채팅방 생성
+      </button>
+      <button type="button" class="btn btn-primary" onclick="namespace()">
+        채팅방 입장
+      </button>
+      <h1></h1>
+      <div>
+        <form id="chatForm" class="form-inline">
+          <div class="form-group">
+            <label for="msgForm">Message: </label>
+            <input type="text" class="form-control" id="msgForm" />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <form id="fileForm" class="form-inline">
+          <div class="form-group sendfile">
+            <label for="msgForm">File: </label>
+            <input type="file" id="fileName" onchange="upload(this.files)" />
+            <button type="submit" class="btn btn-primary">File Upload</button>
+          </div>
+        </form>
+      </div>
+      <ul id="chatUsers"></ul>
+      <div id="chatLogs"></div>
+      <ul id="messages"></ul>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      /* State */
+      const socket = io();
+      const rName = makeRandomName();
+
+      let roomAddress = 'Home'; //현재 방 주소/이름
+      let joinAddress = ''; //옮길 방 주소/이름
+
+      let uList = []; //현재 userlist
+
+      /* Hooks */
+      $(function () {
+        // 실행할 기능 정의.
+        RoomList();
+        socket.emit('joinRoom', roomAddress, rName);
+      });
+
+      /* Functions */
+      //SECTION: function 정의 섹션
+      function makeRandomName() {
+        const name = prompt('채팅방에 참여할 이름을 입력하세요');
+        // var name = '';
+        // var possible = 'abcdefghijklmnopqrstuvwxyz';
+        // for (var i = 0; i < 3; i++) {
+        //   name += possible.charAt(Math.floor(Math.random() * possible.length));
+        // }
+        return name;
+      }
+
+      // 서버로 자신의 정보를 전송한다.
+      function namespace() {
+        socket.emit('leaveRoom', roomAddress, rName);
+        roomAddress = joinAddress;
+        socket.emit('joinRoom', roomAddress, rName);
+        socket.emit('login', {
+          roomAddress: roomAddress,
+          name: rName,
+          userid: `${rName}@gmail.com`,
+        });
+      }
+
+      function RoomList() {
+        socket.emit('RoomList', rName);
+      }
+      //방생성
+      function creatRoom() {
+        const roomName = prompt('채팅방 이름을 입력하세요');
+        socket.emit('creatRoom', roomName, rName);
+      }
+
+      //채팅방 초대
+      function inviteRoom(name) {
+        const result = confirm('현재 채팅방에 초대하시겠습니까?');
+        if (result) {
+          socket.emit('inviteUser', roomAddress, name);
+        } else {
+          console.log('cancle');
+        }
+      }
+
+      //SECTION: socket.on 서버로부터의 메시지 수신
+      socket.on('RoomList', (room) => {
+        $('#roomList').html('');
+        room.forEach((element) => {
+          $('#roomList').append(
+            $('<option value=' + element.roomAddress + '>').text(
+              element.roomAddress
+            )
+          );
+        });
+      });
+
+      socket.on('creatRoom', (room) => {
+        $('#roomList').html('');
+        room.forEach((element) => {
+          $('#roomList').append(
+            $('<option value=' + element.roomAddress + '>').text(
+              element.roomAddress
+            )
+          );
+        });
+      });
+
+      socket.on('userList', (data) => {
+        $('#userlist').html('');
+        $('#userlist').append($('<li>').text('사용자목록'));
+        data.forEach((element) => {
+          if (element.rName === rName) {
+            $('#userlist').append(
+              $('<li class="str">').text(
+                '나 - Name : ' + element.rName + ' / userId : ' + element.userid
+              )
+            );
+          } else {
+            $('#userlist').append(
+              $(
+                '<li class="users" onclick="inviteRoom(\'' +
+                  element.rName +
+                  "','" +
+                  element.userid +
+                  '\')">'
+              ).text(
+                'Name : ' + element.rName + ' / userId : ' + element.userid
+              )
+            );
+          }
+        });
+        uList = data;
+      });
+
+      socket.on('inviteUser', (name) => {
+        $('#messages').append(
+          $('<li>').text(name + '님이 채팅방에 초대되었습니다.')
+        );
+      });
+
+      socket.on('chat message', (rName, msg) => {
+        $('#messages').append($('<li>').text(rName + '  :  ' + msg));
+      });
+
+      socket.on('leaveRoom', (roomAddress, rName) => {
+        $('#messages').append(
+          $('<li>').text(rName + ' / leaved room : ' + roomAddress + ':)')
+        );
+      });
+
+      socket.on('joinRoom', (roomAddress, rName) => {
+        $('#messages').append(
+          $('<li>').text(rName + ' / joined room : ' + roomAddress + ':)')
+        );
+      });
+
+      //SECTION: socket.emit 서버로 메시지 전송
+      $('#chatForm').submit(function (e) {
+        // Send 버튼이 클릭되면
+        e.preventDefault();
+        const $msgForm = $('#msgForm');
+        const msg = $msgForm.val();
+
+        console.log('msg : ', msg);
+        // 서버로 메시지를 전송한다.
+        socket.emit('chat message', roomAddress, rName, msg);
+        $msgForm.val('');
+      });
+
+      // fileupload 버튼이 클릭되면
+      $('#fileForm').submit(function (e) {
+        e.preventDefault();
+        const files = $('#fileName').prop('files');
+        console.log(files[0]);
+        // 서버로 파일을 전송한다.
+        socket.emit('upload', files[0], (status) => {
+          console.log(status);
+        });
+        $('#fileName').val('');
+      });
+
+      //방 옮기기
+      $('select[name=roomChoice]').change(() => {
+        const a = $('select[name=roomChoice] option:selected').val();
+        console.log(a);
+        // var regex = /[^0-9]/g;
+        // var result = a.replace(regex, '');
+        joinAddress = a;
+      });
+    </script>
+  </body>
+</html>

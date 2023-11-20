@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="219" height="219" viewBox="0 0 219 219">
+  <g id="그룹_74" data-name="그룹 74" transform="translate(-1023.5 -777)">
+    <g id="photo_placeholder_copy_2" data-name="photo / placeholder copy 2" transform="translate(1023.5 777)">
+      <rect id="Shadow" width="219" height="219" rx="16" fill="none"/>
+      <g id="Rectangle" fill="#f95a2c" stroke="#18191f" stroke-miterlimit="10" stroke-width="2">
+        <rect width="219" height="219" rx="16" stroke="none"/>
+        <rect x="1" y="1" width="217" height="217" rx="15" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_simple-addthis" data-name="Icon simple-addthis" d="M50.287,37.651H37.712V50.178H29.331V37.651H16.762V29.3H29.334V16.768h8.384V29.3H50.287ZM58.668.061H8.381A8.393,8.393,0,0,0,0,8.415V58.534a8.392,8.392,0,0,0,8.381,8.348H58.668a8.4,8.4,0,0,0,8.381-8.348V8.415A8.4,8.4,0,0,0,58.668.062Z" transform="translate(1099.476 853.028)" fill="#fff"/>
+  </g>
+</svg>

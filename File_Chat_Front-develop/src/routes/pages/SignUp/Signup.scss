@@ -1,0 +1,48 @@
+.signup-container {
+  height: 100vh;
+  .signup-flex-box {
+    height: 100%;
+    .signup-title-box {
+    }
+
+    .signup-form-box {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+
+      .ant-form {
+        width: 30%;
+
+        //SECTION 입력 폼 디자인
+        .ant-form-item {
+          width: 100%;
+          display: flex;
+
+          .ant-form-item-label {
+            text-align: right;
+
+            flex-basis: 30%;
+          }
+          .ant-form-item-control {
+            flex-basis: 70%;
+          }
+
+          .ant-radio-group {
+            width: 100%;
+            .ant-radio-button-wrapper {
+              width: 50%;
+              text-align: center;
+            }
+          }
+
+          .signup-form-button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

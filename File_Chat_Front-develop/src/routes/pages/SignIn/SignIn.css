@@ -1,0 +1,45 @@
+.signin-container {
+  height: 100vh; }
+
+.signin-container .signin-flex-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center; }
+
+.signin-container .signin-flex-box .login-form-box {
+  margin-top: 100px;
+  width: 30%; }
+
+.signin-container .signin-flex-box .login-form-box .image-box .logo {
+  width: 100%;
+  height: 100%;
+  font-family: 'NanumGothic';
+  font-weight: bold;
+  font-size: 28px;
+  color: #fff;
+  padding: 0 1%; }
+
+.signin-container .signin-flex-box .login-form-box .image-box .logo span {
+  color: #476cec !important;
+  -webkit-text-stroke: 0.5px #f1f1f1; }
+
+.signin-container .signin-flex-box .login-form-box .ant-form {
+  /* width: 30%; */
+  background-color: white;
+  padding: 1vw; }
+
+.signin-container .signin-flex-box .login-form-box .login-option-interface {
+  text-align: left; }
+
+.signin-container
+.signin-flex-box
+.login-form-box
+.login-option-interface
+.login-form-forgot {
+  float: right; }
+
+.signin-container .signin-flex-box .login-form-box .login-form-button {
+  width: 100%;
+  margin-bottom: 1vh; }

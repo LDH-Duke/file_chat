@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Livecon deploy on 'meet.livecon.kr'
+
+# Controls when the action will run.
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build, Deploy to S3 bucket
+    runs-on: [ubuntu-18.04]
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Npm install
+        run: npm ci
+
+      - name: Build
+        run: npm run build:prod
+        env:
+          NODE_PATH : /src
+          REACT_APP_HOST_URL : ${{ secrets.REACT_APP_HOST_URL }}
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws s3 sync ./build ${{ secrets.AWS_S3_URL }}
+
+      - name: Caching
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DIST_ID }} --paths '/*'

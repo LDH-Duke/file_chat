@@ -1,0 +1,3 @@
+.calendar-divider::before {
+  width: 0 !important;
+}

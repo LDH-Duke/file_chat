@@ -1,0 +1,33 @@
+.signin-container {
+  height: 100vh;
+  .signin-flex-box {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .signin-title-box {
+    }
+
+    .login-form-box {
+      margin-top: 100px;
+
+      // flex-basis: 30%;
+      width: 30%;
+      text-align: center;
+
+      .login-option-interface {
+        text-align: left;
+        .login-form-forgot {
+          float: right;
+        }
+      }
+
+      .login-form-button {
+        width: 100%;
+      }
+    }
+  }
+}
